@@ -53,7 +53,7 @@ public:
         }
         return true;
     }
-}; // 🛠️ Class closed properly here
+}; 
 
 int main(void) {
     InitWindow(600, 600, "Tic Tac Toe");
@@ -91,7 +91,7 @@ int main(void) {
         // 📏 Draw Grid Lines
         DrawLine(200, 0, 200, 600, BLACK);
         DrawLine(400, 0, 400, 600, BLACK);
-        DrawLine(0, 200, 600, 200, BLACK); // 🛠️ Fixed line length
+        DrawLine(0, 200, 600, 200, BLACK); 
         DrawLine(0, 400, 600, 400, BLACK);
 
         for (int r = 0; r < 3; r++) {
