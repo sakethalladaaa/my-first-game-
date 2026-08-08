@@ -4,11 +4,10 @@ enum class GameState {
     MENU,
     PLAYING,
     GAME_OVER
-};
+            };
 
-class Board {
-private:
-    char grid[3][3];
+class Board    {
+  private:char grid[3][3];
 
 public:
     Board() {
@@ -16,17 +15,17 @@ public:
     }
 
     void reset() {
-        for (int a = 0; a < 3; a++) {
-            for (int b = 0; b < 3; b++) {
-                grid[a][b] = ' ';
+    for (int a = 0; a < 3; a++) {
+        for (int b = 0; b < 3; b++) {
+            grid[a][b] = ' ';
             }
         }
     }
 
     bool makeMove(int row, int col, char mark) {
-        if (row >= 0 && row < 3 && col >= 0 && col < 3 && grid[row][col] == ' ') {
-            grid[row][col] = mark;
-            return true;
+    if (row >= 0 && row < 3 && col >= 0 && col < 3 && grid[row][col] == ' ') {
+        grid[row][col] = mark;
+        return true;
         }
         return false;
     }
@@ -37,32 +36,32 @@ public:
 
     char checkWin() const {
         for (int i = 0; i < 3; i++) {
-            if (grid[i][0] != ' ' && grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2])
-                return grid[i][0];
-            if (grid[0][i] != ' ' && grid[0][i] == grid[1][i] && grid[1][i] == grid[2][i])
-                return grid[0][i];
+        if (grid[i][0] != ' ' && grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2])
+         return grid[i][0];
+        if (grid[0][i] != ' ' && grid[0][i] == grid[1][i] && grid[1][i] == grid[2][i])
+        return grid[0][i];
         }
         if (grid[0][0] != ' ' && grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2])
-            return grid[0][0];
+        return grid[0][0];
         if (grid[0][2] != ' ' && grid[0][2] == grid[1][1] && grid[1][1] == grid[2][0])
-            return grid[0][2];
+        return grid[0][2];
 
         return ' ';
     }
 
     bool isFull() const {
-        for (int r = 0; r < 3; r++) {
-            for (int c = 0; c < 3; c++) {
-                if (grid[r][c] == ' ')
+    for (int r = 0; r < 3; r++) {
+    for (int c = 0; c < 3; c++) {
+    if (grid[r][c] == ' ')
                     return false;
-            }
+               }
+           }
+             return true;
         }
-        return true;
-    }
-};
+    };
 
 int main(void) {
-    InitWindow(600, 600, "Tic Tac Toe");
+InitWindow(600, 600, "Tic Tac Toe");
     SetTargetFPS(60);
 
     Board board;
@@ -72,12 +71,12 @@ int main(void) {
 
     while (!WindowShouldClose()) {
         switch (currentState) {
-            case GameState::MENU:
-                if (IsKeyPressed(KEY_ENTER) || IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
-                    board.reset();
-                    currentTurn = 'X';
-                    winner = ' ';
-                    currentState = GameState::PLAYING;
+    case GameState::MENU:
+if (IsKeyPressed(KEY_ENTER) || IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                     board.reset();
+                currentTurn = 'X';
+                     winner = ' ';
+            currentState = GameState::PLAYING;
                 }
                 break;
 
